@@ -1,0 +1,13 @@
+apiVersion: gloo.solo.io/v1
+kind: Upstream
+metadata:
+  labels:
+    app: gloo
+  name: inventory-upstream
+  namespace: default
+spec:
+  static:
+    autoSniRewrite: true
+    hosts:
+    - addr: $INVENTORY_INTERNAL_FQDN
+      port: 80
